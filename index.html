@@ -75,50 +75,17 @@
           <!-- /search or start a new chat -->
 
           <!-- contacts -->
-          <div class="contacts">
+          <div class="contacts" id="contacts">
             <!-- contacts list -->
             <ul class="contacts-list no-style">
               <!-- contact -->
-              <li class="clearfix contact">
+              <li  v-for="(contact, index) in contacts" class="clearfix contact">
 
                 <div class="contact-image">
-                  <img src="img/avatar_1.jpg" alt="">
+                  <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                 </div>
 
-                <p class="contact-name">Michele</p>
-              </li>
-              <!-- /contact -->
-
-              <!-- contact -->
-              <li class="clearfix contact">
-
-                <div class="contact-image">
-                  <img src="img/avatar_2.jpg" alt="">
-                </div>
-
-                <p class="contact-name">Fabio</p>
-              </li>
-              <!-- /contact -->
-
-              <!-- contact -->
-              <li class="clearfix contact">
-
-                <div class="contact-image">
-                  <img src="img/avatar_3.jpg" alt="">
-                </div>
-
-                <p class="contact-name">Samuele</p>
-              </li>
-              <!-- /contact -->
-
-              <!-- contact -->
-              <li class="clearfix contact">
-
-                <div class="contact-image">
-                  <img src="img/avatar_4.jpg" alt="">
-                </div>
-
-                <p class="contact-name">Luigi</p>
+                <p class="contact-name">{{contact.name}}</p>
               </li>
               <!-- /contact -->
             </ul>
