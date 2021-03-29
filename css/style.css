@@ -11,9 +11,20 @@ body {
 }
 
 /* mix */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .search-style {
   border: 1px solid #F5F5F5;
   background-color: #fff;
+}
+
+/* styling lists */
+.no-style {
+  list-style: none;
 }
 /* /mix */
 
@@ -97,4 +108,39 @@ body {
   height: 35px;
   padding: 0 10px;
 }
+/* /search */
+
+/* contacts */
+.contacts {
+  height: calc(100% - 200px);
+  overflow-y: auto;
+}
+
+.contacts-list .contact {
+  padding: 10px 20px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.contacts-list .contact-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+}
+
+.contacts-list .contact-image img {
+  width: 100%;
+}
+
+.contact-name {
+  float: left;
+  margin-left: 20px;
+}
+
+.active-contact {
+  background-color: #e9ebeb;
+}
+/* /contacts */
+
 /* /left column */
