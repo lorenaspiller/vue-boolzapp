@@ -53,7 +53,7 @@ body {
 
 /* main style */
 .main-container {
-  max-width: 1480px;
+  max-width: 80%;
   height: calc(100vh - 40px);
   margin:auto;
   display: flex;
@@ -169,6 +169,7 @@ body {
 .contacts-list .contact {
   padding: 10px 20px;
   border-bottom: 1px solid #F0F0F0;
+  cursor: pointer;
 }
 
 .contact-image {
@@ -228,33 +229,24 @@ body {
 .message-style {
   padding: 10px 20px;
   border-radius: 10px;
-}
-
-.message-row {
-  display: flex;
-}
-
-.user-message-row {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.contact-message-row {
-  display: flex;
-  justify-content: flex-start;
+  display: block;
+  margin: 20px 0;
 }
 
 .user-message {
   background-color: #daf0c2;
+  margin-left: auto;
 }
 
 .contact-message {
   background-color: #fff;
+  margin-right: auto;
 }
 
 .user-message,
 .contact-message {
   min-width: 300px;
+  max-width: 400px;
 }
 
 .sent-infos {

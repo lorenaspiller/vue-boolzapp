@@ -7,8 +7,9 @@ nome e immagine di ogni contatto
 */
 
 var app = new Vue({
-  el: '#contacts',
+  el: '#main-container',
   data: {
+    contactIndex: 0,
     contacts: [
         {
             name: 'Michele',
@@ -74,7 +75,7 @@ var app = new Vue({
             ],
         },
         {
-            name: 'Luisa',
+            name: 'Luigi',
             avatar: '_4',
             visible: true,
             messages: [{
@@ -90,6 +91,9 @@ var app = new Vue({
             ],
         },
     ],
+
+  },
+  methods: {
 
   }
 })

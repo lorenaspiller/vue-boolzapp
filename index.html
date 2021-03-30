@@ -24,7 +24,7 @@
 
     <main>
       <!-- main container of the app -->
-      <div class="main-container">
+      <div class="main-container" id="main-container">
 
         <!-- main left column -->
         <div class="left-column">
@@ -75,7 +75,7 @@
           <!-- /search or start a new chat -->
 
           <!-- contacts -->
-          <div class="contacts" id="contacts">
+          <div class="contacts">
             <!-- contacts list -->
             <ul class="contacts-list no-style">
               <!-- contact -->
@@ -133,24 +133,9 @@
 
           <!-- main chat of the right column -->
           <div class="main-chat">
-            <div class="user-message-row">
-              <div class="user-message message-style">
-                <p>Hai portato a spasso il cane?</p>
-                <div class="sent-infos">
-                  <p class="date">29/03/2021</p>
-                  <p class="time">15:30:55</p>
-                </div>
-              </div>
-            </div>
-            <div class="contact-message-row">
-              <div class="contact-message message-style">
-                <p>Tutto fatto!</p>
-                <div class="sent-infos">
-                  <p class="date">29/03/2021</p>
-                  <p class="time">15:30:55</p>
-                </div>
-              </div>
-            </div>
+            <ul class="no-style clearfix">
+              <li class="message-style" v-for="message in contacts[0].messages" :class="(message.status == 'sent') ? 'user-message' : 'contact-message'">{{message.message}}</li>
+            </ul>
           </div>
           <!-- /main chat of the right column -->
 
@@ -167,10 +152,6 @@
             </div>
           </div>
           <!-- /footer of the right column -->
-
-
-
-
 
         </div>
         <!-- /main right column -->
