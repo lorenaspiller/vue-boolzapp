@@ -229,7 +229,6 @@ body {
 .message-style {
   padding: 10px 20px;
   border-radius: 10px;
-  display: block;
   margin: 20px 0;
 }
 
@@ -249,16 +248,14 @@ body {
   max-width: 400px;
 }
 
-.sent-infos {
+.date {
   display: flex;
   justify-content: flex-end;
   margin-top: 10px;
-}
-
-.sent-infos p {
   font-size: 10px;
   color: #A8A8A8;
 }
+
 /* /right column main */
 
 /* right column footer */

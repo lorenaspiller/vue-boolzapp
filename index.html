@@ -79,7 +79,7 @@
             <!-- contacts list -->
             <ul class="contacts-list no-style">
               <!-- contact -->
-              <li  v-for="(contact, index) in contacts" class="clearfix contact">
+              <li  v-for="(contact, index) in contacts" class="clearfix contact" :class="contactIndex == index ? 'active-contact' : '' "   @click="contactIndex = index">
 
                 <div class="contact-image">
                   <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
@@ -103,16 +103,16 @@
           <!-- header of the right column -->
           <div class="column__header">
             <!-- infos about the contact that is chatting with you -->
-            <div class="contact-chat">
+            <div class="contact-chat"  v-for="(contact, index) in contacts" v-show="contactIndex == index">
               <!-- contact's image -->
               <div class="contact-image">
-                <img src="img/avatar_1.jpg" alt="contact image">
+                <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
               </div>
               <!-- /contact's image -->
 
               <!-- contact's infos -->
               <div class="contact-infos">
-                <p class="chat-contact-name">Michele</p>
+                <p class="chat-contact-name">{{contact.name}}</p>
                 <p class="chat-last-online">Ultimo accesso oggi alle</p>
               </div>
               <!-- /contact's infos -->
@@ -134,7 +134,11 @@
           <!-- main chat of the right column -->
           <div class="main-chat">
             <ul class="no-style clearfix">
-              <li class="message-style" v-for="message in contacts[0].messages" :class="(message.status == 'sent') ? 'user-message' : 'contact-message'">{{message.message}}</li>
+              <li class="message-style" v-for="message in contacts[contactIndex].messages" :class="(message.status == 'sent') ? 'user-message' : 'contact-message'">
+              <p>{{message.message}}</p>
+              <p class="date">{{message.date}}</p>
+              </li>
+
             </ul>
           </div>
           <!-- /main chat of the right column -->
