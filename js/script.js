@@ -107,20 +107,19 @@ var app = new Vue({
   methods: {
     addMessage: function() {
       if (this.newMessage != "") {
-        this.contacts[this.contactIndex].messages.push({
-          date: this.date,
-          message: this.newMessage,
-          status: 'sent'
-        });
+        this.dynamicMessage(this.newMessage, 'sent');
         setTimeout(() => {
-          this.contacts[this.contactIndex].messages.push({
-            date: this.date,
-            message: 'ok!',
-            status: 'received'
-          });
+          this.dynamicMessage('ok', 'received');
         }, 1000);
         this.newMessage="";
       }
+    },
+    dynamicMessage: function(messageValue, statusValue) {
+      this.contacts[this.contactIndex].messages.push({
+        date: this.date,
+        message: messageValue,
+        status: statusValue
+      });
     }
   }
 });
