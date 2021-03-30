@@ -103,16 +103,16 @@
           <!-- header of the right column -->
           <div class="column__header">
             <!-- infos about the contact that is chatting with you -->
-            <div class="contact-chat"  v-for="(contact, index) in contacts" v-show="contactIndex == index">
+            <div class="contact-chat">
               <!-- contact's image -->
               <div class="contact-image">
-                <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
+                <img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="">
               </div>
               <!-- /contact's image -->
 
               <!-- contact's infos -->
               <div class="contact-infos">
-                <p class="chat-contact-name">{{contact.name}}</p>
+                <p class="chat-contact-name">{{contacts[contactIndex].name}}</p>
                 <p class="chat-last-online">Ultimo accesso oggi alle</p>
               </div>
               <!-- /contact's infos -->
