@@ -22,7 +22,6 @@ body {
 }
 /* /button */
 
-
 /* mix */
 .clearfix::after {
   content: "";
@@ -33,23 +32,18 @@ body {
 .search-style {
   border: 1px solid #F5F5F5;
   background-color: #fff;
+  width: 10%;
+  height: 35px;
+  color: #ccc;
+  border-right: none;
 }
+/* /mix */
 
 /* styling lists */
 .no-style {
   list-style: none;
 }
 /* /mix */
-
-/* button */
-.search-cta {
-  width: 10%;
-  height: 35px;
-  color: #ccc;
-  border-right: none;
-}
-/* /button */
-
 
 /* main style */
 .main-container {
@@ -147,8 +141,7 @@ body {
 }
 
 .search  {
-  width: 90%;
-  background-color: #fafafa;
+  width: 100%;
   display: flex;
   align-items: center;
 }
@@ -157,6 +150,10 @@ body {
   width: 100%;
   height: 35px;
   padding: 0 10px;
+}
+
+.search-bar .lens {
+  padding: 0 20px;
 }
 /* /search */
 

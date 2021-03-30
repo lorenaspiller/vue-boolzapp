@@ -109,7 +109,7 @@ var app = new Vue({
       if (this.newMessage != "") {
         this.dynamicMessage(this.newMessage, 'sent');
         setTimeout(() => {
-          this.dynamicMessage('ok', 'received');
+          this.dynamicMessage('Ok!', 'received');
         }, 1000);
         this.newMessage="";
       }

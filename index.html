@@ -67,8 +67,8 @@
 
           <!-- search or start a new chat -->
           <div class="search-bar">
-            <button type="button" name="button" class="search-style search-cta"><i class="fas fa-search"></i></button>
-            <label for="search" class="search">
+            <label for="search" class="search search-style">
+              <i class="fas fa-search lens"></i>
               <input id="search" class="search-style" type="text" placeholder="Cerca o inizia una nuova chat">
             </label>
           </div>
@@ -92,9 +92,6 @@
             <!-- /contacts list -->
           </div>
           <!-- /contacts -->
-
-
-
         </div>
         <!-- /main left column -->
 
@@ -113,7 +110,7 @@
               <!-- contact's infos -->
               <div class="contact-infos">
                 <p class="chat-contact-name">{{contacts[contactIndex].name}}</p>
-                <p class="chat-last-online">Ultimo accesso oggi alle 14:30</p>
+                <p class="chat-last-online">Ultimo accesso oggi alle {{date}}</p>
               </div>
               <!-- /contact's infos -->
             </div>
