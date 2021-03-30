@@ -113,7 +113,7 @@
               <!-- contact's infos -->
               <div class="contact-infos">
                 <p class="chat-contact-name">{{contacts[contactIndex].name}}</p>
-                <p class="chat-last-online">Ultimo accesso oggi alle</p>
+                <p class="chat-last-online">Ultimo accesso oggi alle <span v-model="date"></span>{{date}}</p>
               </div>
               <!-- /contact's infos -->
             </div>
@@ -166,7 +166,9 @@
 
 
 
-
+    <!-- CDN example (unpkg) -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>dayjs().format('DD/MM/YYYY HH:mm:ss')</script>
     <!-- javascript link -->
     <script src="js/script.js" charset="utf-8"></script>
     <!-- /javascript link -->
