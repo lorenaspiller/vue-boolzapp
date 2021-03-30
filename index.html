@@ -149,7 +149,7 @@
               <button class="btn edit-message-cdn"><i class="far fa-smile"></i></button>
             </div>
             <div class="type-message">
-              <input type="text" placeholder="Scrivi un messaggio" class="input-message">
+              <input type="text" placeholder="Scrivi un messaggio" class="input-message" v-model="newMessage" @keydown.13="addMessage">
             </div>
             <div class="audio-button">
               <button class="btn edit-message-cdn"><i class="fas fa-microphone"></i></button>
