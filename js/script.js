@@ -129,7 +129,7 @@ var app = new Vue({
     // filteredContacts: function() {
     //   this.contacts.forEach((contact) => {
     //     if (this.searchContact != "") {
-    //       if (contact.name.toLowerCase().includes(this.searchContact)) {
+    //       if (contact.name.toLowerCase().includes(this.searchContact.toLowerCase())) {
     //         contact.visible = true;
     //       } else {
     //         contact.visible = false;
@@ -160,7 +160,7 @@ var app = new Vue({
   computed: {
     filteredContacts: function() {
       return this.contacts.filter((contact) => {
-        return contact.name.toLowerCase().match(this.searchContact);
+        return contact.name.toLowerCase().match(this.searchContact.toLowerCase());
       });
     }
   }
