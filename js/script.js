@@ -21,6 +21,7 @@ var app = new Vue({
     newMessage: "",
     contactIndex: 0,
     date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+    searchContact: "",
     contacts: [
         {
             name: 'Michele',
@@ -119,6 +120,19 @@ var app = new Vue({
         date: this.date,
         message: messageValue,
         status: statusValue
+      });
+    },
+    filteredContacts: function() {
+      this.contacts.forEach((contact) => {
+        if (this.searchContact != "") {
+          if (contact.name.toLowerCase().includes(this.searchContact)) {
+            contact.visible = true;
+          } else {
+            contact.visible = false;
+          }
+        } else {
+          contact.visible = true;
+        }
       });
     }
   }

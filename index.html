@@ -69,7 +69,7 @@
           <div class="search-bar">
             <label for="search" class="search search-style">
               <i class="fas fa-search lens"></i>
-              <input id="search" class="search-style" type="text" placeholder="Cerca o inizia una nuova chat">
+              <input v-model="searchContact" id="search" class="search-style" type="text" placeholder="Cerca o inizia una nuova chat" @input="filteredContacts">
             </label>
           </div>
           <!-- /search or start a new chat -->
@@ -79,7 +79,7 @@
             <!-- contacts list -->
             <ul class="contacts-list no-style">
               <!-- contact -->
-              <li  v-for="(contact, index) in contacts" class="clearfix contact" :class="contactIndex == index ? 'active-contact' : '' "   @click="contactIndex = index">
+              <li  v-for="(contact, index) in contacts" class="clearfix contact" :class="contactIndex == index ? 'active-contact' : '' "   @click="contactIndex = index" v-show="contact.visible">
 
                 <div class="contact-image">
                   <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
