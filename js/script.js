@@ -135,5 +135,16 @@ var app = new Vue({
         }
       });
     }
-  }
+  },
+  //
+  // versione con filter - cambierò il ciclo del <li> dei contatti in v-for="(contact, index) in filteredContacts" perchè filter mi restituisce un array e devo ciclare sul nuovo array filtrato
+  //
+  //
+  // computed: {
+  //   filteredContacts: function() {
+  //     return this.contacts.filter((contact) => {
+  //       return contact.name.toLowerCase().match(this.searchContact);
+  //     });
+  //   }
+  // }
 });
