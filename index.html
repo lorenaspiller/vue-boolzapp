@@ -79,7 +79,7 @@
             <!-- contacts list -->
             <ul class="contacts-list no-style">
               <!-- contact -->
-              <li  v-for="(contact, index) in contacts" class="clearfix contact" :class="contactIndex == index ? 'active-contact' : '' "   @click="contactIndex = index" v-show="contact.visible">
+              <li  v-for="(contact, index) in filteredContacts" class="clearfix contact" :class="contactIndex == index ? 'active-contact' : '' "   @click="contactIndex = index" v-show="contact.visible">
 
                 <div class="contact-image">
                   <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
@@ -103,13 +103,13 @@
             <div class="contact-chat">
               <!-- contact's image -->
               <div class="contact-image">
-                <img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="">
+                <img :src="'img/avatar' + filteredContacts[contactIndex].avatar + '.jpg'" alt="">
               </div>
               <!-- /contact's image -->
 
               <!-- contact's infos -->
               <div class="contact-infos">
-                <p class="chat-contact-name">{{contacts[contactIndex].name}}</p>
+                <p class="chat-contact-name">{{filteredContacts[contactIndex].name}}</p>
                 <p class="chat-last-online">Ultimo accesso oggi alle {{date}}</p>
               </div>
               <!-- /contact's infos -->
@@ -131,7 +131,7 @@
           <!-- main chat of the right column -->
           <div class="main-chat">
             <ul class="no-style clearfix">
-              <li class="message-style" v-for="message in contacts[contactIndex].messages" :class="(message.status == 'sent') ? 'user-message' : 'contact-message'">
+              <li class="message-style" v-for="message in filteredContacts[contactIndex].messages" :class="(message.status == 'sent') ? 'user-message' : 'contact-message'">
               <p>{{message.message}}</p>
               <p class="date">{{message.date}}</p>
               </li>

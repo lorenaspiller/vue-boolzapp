@@ -13,6 +13,8 @@ MILESTONE 3
 “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
 un “ok” come risposta, che apparirà dopo 1 secondo.
+MILESTONE 4
+● Ricerca nei contatti tramite input
 */
 
 var app = new Vue({
@@ -116,35 +118,50 @@ var app = new Vue({
       }
     },
     dynamicMessage: function(messageValue, statusValue) {
-      this.contacts[this.contactIndex].messages.push({
+      this.filteredContacts[this.contactIndex].messages.push({
         date: this.date,
         message: messageValue,
         status: statusValue
       });
     },
+    ////versione con forEach() - devi aggiungere @input="filteredContacts" all'interno dell'input del search nel DOM, per rimanere in ascolto.
+    //
+    // filteredContacts: function() {
+    //   this.contacts.forEach((contact) => {
+    //     if (this.searchContact != "") {
+    //       if (contact.name.toLowerCase().includes(this.searchContact)) {
+    //         contact.visible = true;
+    //       } else {
+    //         contact.visible = false;
+    //       }
+    //     } else {
+    //       contact.visible = true;
+    //     }
+    //   });
+    // }
+  },
+
+  /* versione con filter - devo sostituire contacts con filteredContacts perchè filter mi restituisce un array e devo ciclare sul nuovo array filtrato - uso filter nei computed perchè restituisco un nuovo array da uno già esistente (contacts) - cambierò:
+
+  ● il ciclo del <li> dei contatti in v-for="(contact, index) in filteredContacts",
+  ● l'indirizzo dell'immagine del contatto nella chat :src="'img/avatar' + filteredContacts[contactIndex].avatar + '.jpg'",
+  ● il p con il nome del contatto {{filteredContacts[contactIndex].name}},
+  ● il ciclo nel <li> che stampa il messaggio v-for="message in filteredContacts[contactIndex].messages"
+  ● nei methods, la funzione dynamicMessage() diventerà:
+  dynamicMessage: function(messageValue, statusValue) {
+    this.filteredContacts[this.contactIndex].messages.push({
+      date: this.date,
+      message: messageValue,
+      status: statusValue
+    });
+  */
+
+
+  computed: {
     filteredContacts: function() {
-      this.contacts.forEach((contact) => {
-        if (this.searchContact != "") {
-          if (contact.name.toLowerCase().includes(this.searchContact)) {
-            contact.visible = true;
-          } else {
-            contact.visible = false;
-          }
-        } else {
-          contact.visible = true;
-        }
+      return this.contacts.filter((contact) => {
+        return contact.name.toLowerCase().match(this.searchContact);
       });
     }
-  },
-  //
-  // versione con filter - cambierò il ciclo del <li> dei contatti in v-for="(contact, index) in filteredContacts" perchè filter mi restituisce un array e devo ciclare sul nuovo array filtrato
-  //
-  //
-  // computed: {
-  //   filteredContacts: function() {
-  //     return this.contacts.filter((contact) => {
-  //       return contact.name.toLowerCase().match(this.searchContact);
-  //     });
-  //   }
-  // }
+  }
 });
