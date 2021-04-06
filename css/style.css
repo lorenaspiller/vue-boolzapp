@@ -162,6 +162,7 @@ body {
 .contacts {
   height: calc(100% - 200px);
   overflow-y: auto;
+  position: relative;
 }
 
 .contacts-list .contact {
@@ -189,6 +190,14 @@ body {
 
 .active-contact {
   background-color: #e9ebeb;
+}
+
+.no-result {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  font-size: 18px;
 }
 /* /contacts */
 /* /left column */

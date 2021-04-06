@@ -69,7 +69,7 @@
           <div class="search-bar">
             <label for="search" class="search search-style">
               <i class="fas fa-search lens"></i>
-              <input v-model="searchContact" id="search" class="search-style" type="text" placeholder="Cerca o inizia una nuova chat" @input="filteredContacts">
+              <input v-model="searchContact" id="search" class="search-style" type="text" placeholder="Cerca o inizia una nuova chat">
             </label>
           </div>
           <!-- /search or start a new chat -->
@@ -79,17 +79,19 @@
             <!-- contacts list -->
             <ul class="contacts-list no-style">
               <!-- contact -->
-              <li  v-for="(contact, index) in filteredContacts" class="clearfix contact" :class="contactIndex == index ? 'active-contact' : '' "   @click="contactIndex = index" v-show="contact.visible">
+              <li  v-for="(contact, index) in filteredContacts" class="clearfix contact" :class="contactIndex == index ? 'active-contact' : '' "   @click="contactIndex = index">
 
                 <div class="contact-image">
                   <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                 </div>
 
                 <p class="contact-name">{{contact.name}}</p>
+
               </li>
               <!-- /contact -->
             </ul>
             <!-- /contacts list -->
+            <p class="no-result" v-if="filteredContacts.length == 0">NESSUN RISULTATO</p>
           </div>
           <!-- /contacts -->
         </div>
@@ -102,13 +104,13 @@
             <!-- infos about the contact that is chatting with you -->
             <div class="contact-chat">
               <!-- contact's image -->
-              <div class="contact-image">
+              <div class="contact-image" v-if="filteredContacts.length > 0">
                 <img :src="'img/avatar' + filteredContacts[contactIndex].avatar + '.jpg'" alt="">
               </div>
               <!-- /contact's image -->
 
               <!-- contact's infos -->
-              <div class="contact-infos">
+              <div class="contact-infos" v-if="filteredContacts.length > 0">
                 <p class="chat-contact-name">{{filteredContacts[contactIndex].name}}</p>
                 <p class="chat-last-online">Ultimo accesso oggi alle {{date}}</p>
               </div>
@@ -130,7 +132,7 @@
 
           <!-- main chat of the right column -->
           <div class="main-chat">
-            <ul class="no-style clearfix">
+            <ul class="no-style clearfix" v-if="filteredContacts.length > 0">
               <li class="message-style" v-for="message in filteredContacts[contactIndex].messages" :class="(message.status == 'sent') ? 'user-message' : 'contact-message'">
               <p>{{message.message}}</p>
               <p class="date">{{message.date}}</p>

@@ -104,8 +104,7 @@ var app = new Vue({
                 }
             ],
         },
-    ],
-
+    ]
   },
   methods: {
     addMessage: function() {
@@ -124,8 +123,8 @@ var app = new Vue({
         status: statusValue
       });
     },
-    ////versione con forEach() - devi aggiungere @input="filteredContacts" all'interno dell'input del search nel DOM, per rimanere in ascolto.
-    //
+    //versione con forEach() - devi aggiungere @input="filteredContacts" all'interno dell'input del search nel DOM, per rimanere in ascolto.
+
     // filteredContacts: function() {
     //   this.contacts.forEach((contact) => {
     //     if (this.searchContact != "") {
